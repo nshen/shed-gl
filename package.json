@@ -1,0 +1,54 @@
+{
+  "name": "@shed/gl",
+  "version": "0.0.6",
+  "description": "webgl wrapper",
+  "author": "nshen <nshen121@gmail.com> (http://nshen.net)",
+  "keywords": [
+    "webgl",
+    "minigame",
+    "wechat"
+  ],
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nshen/shed-gl.git"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.4.0",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-typescript": "^7.3.3",
+    "@shed/math": "latest",
+    "rimraf": "^2.6.3",
+    "rollup": "^1.7.4",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^9.2.2",
+    "rollup-plugin-copy-glob": "^0.3.0",
+    "rollup-plugin-generate-html-template": "^1.1.1",
+    "rollup-plugin-livereload": "^1.0.0",
+    "rollup-plugin-node-resolve": "^4.0.1",
+    "rollup-plugin-replace": "^2.1.1",
+    "rollup-plugin-serve": "^1.0.1",
+    "rollup-plugin-shader": "0.0.3",
+    "rollup-plugin-terser": "^4.0.4",
+    "typescript": "^3.4.1"
+  },
+  "scripts": {
+    "build:examples": "rimraf examples/* && rollup -c rollup.config.examples.js --environment DEBUG:false",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build": "rimraf dist/* && npm run build:types && npm run rollup",
+    "rollup": "rollup -c --environment DEBUG:false",
+    "dev": "rimraf examples/* &&  rollup -c rollup.config.examples.js -w --environment DEBUG",
+    "test": "jest",
+    "prepare": "npm run build",
+    "publish": "npm publish --access public"
+  }
+}
