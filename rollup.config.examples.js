@@ -23,8 +23,8 @@ export default [
     buildExample('multiTexture'),
     buildExample('trangle'),
     buildExample('transform'),
-    initExample('shape'), 
-    // initExample('physics')// 
+    buildExample('shape'), 
+    initExample('helloWorld')
 ]
 
 /**
