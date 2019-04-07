@@ -1,5 +1,4 @@
-# Dependency directory
-node_modules
-lib
-dist
-examples
+/node_modules
+/ib
+/dist
+/examples

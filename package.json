@@ -1,6 +1,6 @@
 {
   "name": "@shed/gl",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "webgl wrapper",
   "author": "nshen <nshen121@gmail.com> (http://nshen.net)",
   "keywords": [

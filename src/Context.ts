@@ -4,6 +4,7 @@ import { VertexBuffer } from "./VertexBuffer";
 export class Context {
 
     protected _drawCall: number = 0;
+    // 
     public _gl: WebGLRenderingContext;
 
     constructor(ctx: WebGLRenderingContext) {
@@ -23,10 +24,33 @@ export class Context {
         this._gl.clearColor(c.r, c.g, c.b, c.a);
     }
 
-    cullBackFace() {
+    set depthTest(b: boolean) {
         let gl = this._gl;
-        gl.enable(gl.CULL_FACE);
-        gl.cullFace(gl.BACK);
+        if (b)
+            gl.enable(gl.DEPTH_TEST);
+        else
+            gl.disable(gl.DEPTH_TEST);
+    }
+
+    cullFace(face: 'BACK' | 'FRONT' | 'BOTH' | 'NONE') {
+        let gl = this._gl
+        switch (face) {
+            case 'BACK':
+                gl.enable(gl.CULL_FACE);
+                gl.cullFace(gl.BACK);
+                break;
+            case 'FRONT':
+                gl.enable(gl.CULL_FACE);
+                gl.cullFace(gl.FRONT);
+                break;
+            case 'BOTH':
+                gl.enable(gl.CULL_FACE);
+                gl.cullFace(gl.FRONT_AND_BACK);
+                break;
+            case 'NONE':
+                gl.disable(gl.CULL_FACE);
+                break;
+        }
     }
 
     clear(color: Color | null = null): void {
@@ -45,9 +69,9 @@ export class Context {
         this._gl.pixelStorei(this._gl.UNPACK_FLIP_Y_WEBGL, boole ? 1 : 0);
     }
 
-    draw() {
+    // draw() {
         //  gl.drawArrays or gl.drawElements
-    }
+    // }
 
     // 没有indexbuffer时调用
     // @primitiveType: gl.POINTS, gl.LINES, gl.LINE_STRIP, gl.LINE_LOOP, gl.TRIANGLES, gl.TRIANGLE_STRIP, gl. TRIANGLE_FAN.
