@@ -43,7 +43,7 @@ export default {
         // ),
 
         // Compile TypeScript/JavaScript files
-        babel({ extensions, include: ['src/**/*'] }),
+        babel({ extensions, include: ['src/**/*'], runtimeHelpers: true }),
 
         shader({
             // All match files will be parsed by default,
@@ -57,12 +57,15 @@ export default {
         // terser()
     ],
 
-    output: [{
-        file: pkg.main,
-        format: 'cjs',
-        sourcemap: true
-    }, {
-        file: pkg.module,
-        format: 'esm',
-    }],
+    output: [
+        // {
+        //     file: pkg.main,
+        //     format: 'cjs',
+        //     sourcemap: true
+        // },
+        {
+            file: pkg.module,
+            format: 'esm',
+            sourcemap: true
+        }],
 };
