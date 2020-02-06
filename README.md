@@ -1,3 +1,10 @@
+# 已经转移整合至新地址，此项目不再更新
+
+## https://github.com/nshen/mini-shed/
+
+---
+
+
 # @shed/gl
 
 这是一个 webGL 的包装，用于简化webGL的API
